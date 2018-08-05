@@ -1,0 +1,23 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A SIMPLE URL SHORTENER",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bokariasid/url_shortener.git"
+  },
+  "keywords": [
+    "url",
+    "shortener"
+  ],
+  "author": "bokariasid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bokariasid/url_shortener/issues"
+  },
+  "homepage": "https://github.com/bokariasid/url_shortener#readme"
+}
