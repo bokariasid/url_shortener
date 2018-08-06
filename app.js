@@ -16,7 +16,8 @@ app.disable('x-powered-by');
 //sentiment testing
 app.use(helmet());
 app.use(limiter);
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(__dirname + '/resources'));
 app.set('view cache', true);
 app.set('views', path.join(__dirname, 'server', 'views'));

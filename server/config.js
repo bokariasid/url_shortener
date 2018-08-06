@@ -1,7 +1,7 @@
 var config = {};
 
 config.db = {};
-config.webhost = 'http://localhost:3000/';
+config.webhost = 'http://short.engagelyee.com/';
 
 config.db.host = '13.127.97.212';
 config.db.name = 'jhalora';
