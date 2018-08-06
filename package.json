@@ -28,6 +28,7 @@
     "express-rate-limit": "^2.12.1",
     "helmet": "^3.13.0",
     "mongoose": "^5.2.6",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "validate.js": "^0.12.0"
   }
 }
