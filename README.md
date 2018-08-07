@@ -31,3 +31,8 @@ config.db.port = DB_PORT;
 module.exports = config;
 
 3. app.js  --> Entry point.
+
+
+For test:
+
+npm test
