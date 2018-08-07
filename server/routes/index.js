@@ -19,7 +19,7 @@ var sendJSONresponse = function(res, status, content, headers) {
     res.end('ok');
 };
 
-router.get('/:encoded_id', (req, res) => {
+router.get('/:encoded_id', async (req, res) => {
 	var base58Id = req.params.encoded_id;
 	var id = base58.decode(base58Id);
 	var ua = req.headers['user-agent'],
@@ -71,7 +71,7 @@ router.get('/:encoded_id', (req, res) => {
 	});
 });
 
-router.post('/short', function(req, res) {
+router.post('/short', async (req, res) => {
 	// route to redirect the visitor to their original URL given the short URL
 	var constraint = {longUrl:{presence:true, url:true}};
 	var validation_result = validate(req.body, constraint);
@@ -103,7 +103,7 @@ router.post('/short', function(req, res) {
 	});
 });
 
-router.post('/:encoded_id', (req, res) => {
+router.post('/:encoded_id', async (req, res) => {
 	var base58Id = req.params.encoded_id;
 	var id = base58.decode(base58Id);
 	// check if url already exists in database
