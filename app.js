@@ -28,7 +28,7 @@ app.set('view engine', 'pug');
 app.use('/api', routesApi);
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'A Simple URL shortener' })
+  res.render('index', { title: 'Hey', message: 'A Simple URL shortener' });
 });
 
 app.use(function (req, res, next) {

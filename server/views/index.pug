@@ -2,6 +2,13 @@ html
   head
     title= title
     script(src='//code.jquery.com/jquery-3.3.1.min.js')
-    script(src='../mains.js')
+    script(src='../js/mains.js?12312')
   body
     h1= message
+        // register form
+        // form#longUrlForm()
+        div
+          label(for='longUrl') URL:
+          input#longUrl.form-control(type='url', placeholder='URL' name='longUrl' required)
+        button(type='button' onclick='getShortenedUrl()') SHORTEN
+  h1#shortenedUrl

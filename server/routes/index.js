@@ -80,11 +80,14 @@ router.post('/short', async (req, res) => {
 	}
 	var longUrl = req.body.longUrl;
 	var shortUrl = '';
+	let responseToSend = {};
 	// check if url already exists in database
 	Url.findOne({long_url: longUrl}, (err, doc) => {
 		if (doc){
 			shortUrl = config.webhost + 'api/' + base58.encode(doc._id);
 			// the document exists, so we return it without creating a new entry
+			// responseToSend = { title: 'Hey', message: 'A Simple URL shortener', 'shortUrl': shortUrl}
+			// return res.render('index', responseToSend);
 			return sendJSONresponse(res, 200, {'shortUrl': shortUrl});
 		} else {
 			// since it doesn't exist, let's go ahead and create it:
@@ -96,7 +99,9 @@ router.post('/short', async (req, res) => {
 				if (err){
 					console.log(err);
 				}
+				// responseToSend = { title: 'Hey', message: 'A Simple URL shortener', 'shortUrl': shortUrl}
 				shortUrl = config.webhost + 'api/' + base58.encode(newUrl._id);
+				// return res.render('index', responseToSend);
 				return sendJSONresponse(res, 200, {'shortUrl': shortUrl});
 			});
 		}
