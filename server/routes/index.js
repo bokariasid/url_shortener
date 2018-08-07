@@ -64,9 +64,13 @@ router.get('/:encoded_id', async (req, res) => {
 				Url.findOneAndUpdate({_id: id}, {$set:{user_details:doc.user_details}}, {new:true}, (err, doc) => {});
 				// doc.save();
 			}
-			res.redirect(doc.long_url);
+			res.writeHead(301, {'Location' : doc.long_url});
+			res.end();
+			// res.set('location', doc.long_url);
+			// res.status(302).send()
+			// return res.redirect(doc.long_url);
 		} else {
-			res.redirect(config.webhost);
+			return res.redirect(config.webhost);
 		}
 	});
 });
