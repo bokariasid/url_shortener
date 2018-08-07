@@ -4,6 +4,7 @@ var express                 = require('express');
 path                        = require('path');
 var bodyParser              = require('body-parser');
 var helmet                  = require('helmet');
+var device = require('express-device');
 const RateLimit = require('express-rate-limit');
 const limiter = new RateLimit({
     windowMs: 10*60*1000, // 15 minutes
@@ -16,6 +17,7 @@ app.disable('x-powered-by');
 //sentiment testing
 app.use(helmet());
 app.use(limiter);
+app.use(device.capture());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(__dirname + '/resources'));
@@ -23,10 +25,11 @@ app.set('view cache', true);
 app.set('views', path.join(__dirname, 'server', 'views'));
 app.set('view engine', 'pug');
 
+app.use('/api', routesApi);
+
 app.get('/', function (req, res) {
   res.render('index', { title: 'Hey', message: 'A Simple URL shortener' })
 });
-app.use('/api', routesApi);
 
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
